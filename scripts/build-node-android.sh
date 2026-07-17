@@ -63,4 +63,4 @@ EOF
 
 file "$OUTPUT_DIR/bin/arm64-v8a/libnode.so"
 grep -E 'NODE_(MAJOR|MINOR|PATCH)_VERSION' "$HEADERS/node_version.h" | head -3
-
+"$SCRIPT_DIR/verify-output.sh" "$OUTPUT_DIR"

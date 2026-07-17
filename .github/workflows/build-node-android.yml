@@ -20,7 +20,7 @@ permissions:
 jobs:
   build-arm64-v8a:
     runs-on: ubuntu-22.04
-    timeout-minutes: 120
+    timeout-minutes: 180
     env:
       NDK_VERSION: 28.2.13676358
     steps:
@@ -70,6 +70,9 @@ jobs:
             "$ANDROID_HOME/ndk/$NDK_VERSION" \
             "$PWD/dist" \
             "$ANDROID_API"
+
+      - name: Verify build output
+        run: ./scripts/verify-output.sh "$PWD/dist"
 
       - name: Package output
         env:

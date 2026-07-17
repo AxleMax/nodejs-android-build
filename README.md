@@ -47,7 +47,8 @@ dist/
 ├── bin/arm64-v8a/libnode.so
 ├── include/node/...
 ├── LICENSE.node
-└── BUILD-METADATA.txt
+├── BUILD-METADATA.txt
+└── LIBNODE.SHA256
 ```
 
 The source tree is patched in place. Use a fresh source tree for each build if
@@ -85,4 +86,3 @@ The build scripts and patch helper in this repository are MIT licensed. Node.js
 and its bundled dependencies retain their own licenses. Redistributing a build
 requires preserving the applicable upstream notices; `LICENSE.node` is copied
 into each output bundle as a starting point.
-
