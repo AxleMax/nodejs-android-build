@@ -61,10 +61,13 @@ with Node.js `22.23.1` and Android API `26`. The workflow can also be run
 manually with a selected Node.js 22 version and API level. It verifies the
 Node.js source checksum published by nodejs.org, builds the library, validates
 the ELF architecture and required headers, and uploads a compressed bundle and
-SHA-256 checksum as workflow artifacts.
+SHA-256 checksum as workflow artifacts. After a successful `main` build, the
+same files are published to the rolling `continuous` GitHub Release so they
+remain directly available from the Releases page.
 
-No binary is committed to this repository and the workflow does not publish a
-release automatically.
+No binary is committed to this repository. The `continuous` release is mutable
+and always represents the most recent successful `main` build; its attached
+checksum must be verified before use.
 
 ## Validation
 

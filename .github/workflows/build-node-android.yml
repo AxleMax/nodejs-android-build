@@ -18,7 +18,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-arm64-v8a:
@@ -90,3 +90,13 @@ jobs:
             node-v${{ env.NODE_VERSION }}-android-arm64-v8a.tar.gz.sha256
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish continuous GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ./scripts/publish-continuous-release.sh \
+            "node-v$NODE_VERSION-android-arm64-v8a.tar.gz" \
+            "node-v$NODE_VERSION-android-arm64-v8a.tar.gz.sha256" \
+            continuous

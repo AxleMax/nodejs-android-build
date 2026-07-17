@@ -20,6 +20,10 @@ class WorkflowTest(unittest.TestCase):
         self.assertIn("ANDROID_API: ${{ inputs.android_api || '26' }}", text)
         self.assertIn("name: node-${{ env.NODE_VERSION }}-android-arm64-v8a", text)
         self.assertIn("retention-days: 14", text)
+        self.assertIn("permissions:\n  contents: write\n", text)
+        self.assertIn("Publish continuous GitHub Release", text)
+        self.assertIn("github.event_name == 'push'", text)
+        self.assertIn("publish-continuous-release.sh", text)
 
 
 if __name__ == "__main__":
