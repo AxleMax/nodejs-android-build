@@ -56,10 +56,12 @@ you need a pristine checkout; applying the patch a second time is safe.
 
 ## GitHub Actions
 
-Run the **Build Node.js for Android** workflow manually. Inputs select the
-Node.js 22 version and Android API level. The workflow verifies the Node.js
-source checksum published by nodejs.org, builds the library, and uploads a
-compressed bundle and SHA-256 checksum as workflow artifacts.
+Every push or merged pull request to `main` runs **Build Node.js for Android**
+with Node.js `22.23.1` and Android API `26`. The workflow can also be run
+manually with a selected Node.js 22 version and API level. It verifies the
+Node.js source checksum published by nodejs.org, builds the library, validates
+the ELF architecture and required headers, and uploads a compressed bundle and
+SHA-256 checksum as workflow artifacts.
 
 No binary is committed to this repository and the workflow does not publish a
 release automatically.
