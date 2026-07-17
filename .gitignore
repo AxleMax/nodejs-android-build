@@ -1,0 +1,9 @@
+.cache/
+__pycache__/
+dist/
+node-v*/
+android-ndk-*/
+*.tar.xz
+*.tar.gz
+*.zip
+*.sha256
