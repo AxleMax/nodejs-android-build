@@ -35,10 +35,10 @@ class PatcherTest(unittest.TestCase):
             encoding="utf-8",
         )
         block = (
-            "    if (use_v8_handler) {\n"
-            "      g_is_trap_handler_enabled = RegisterDefaultTrapHandler();\n"
-            "      return g_is_trap_handler_enabled;\n"
-            "    }\n"
+            "  if (use_v8_handler) {\n"
+            "    g_is_trap_handler_enabled = RegisterDefaultTrapHandler();\n"
+            "    return g_is_trap_handler_enabled;\n"
+            "  }\n"
         )
         (self.root / "deps/v8/src/trap-handler/handler-outside.cc").write_text(
             block, encoding="utf-8"
@@ -92,4 +92,3 @@ class PatcherTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

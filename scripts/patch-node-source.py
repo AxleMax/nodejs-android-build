@@ -70,10 +70,10 @@ def patch_trap_handler(root: Path) -> None:
 
     outside = root / "deps/v8/src/trap-handler/handler-outside.cc"
     block = (
-        "    if (use_v8_handler) {\n"
-        "      g_is_trap_handler_enabled = RegisterDefaultTrapHandler();\n"
-        "      return g_is_trap_handler_enabled;\n"
-        "    }\n"
+        "  if (use_v8_handler) {\n"
+        "    g_is_trap_handler_enabled = RegisterDefaultTrapHandler();\n"
+        "    return g_is_trap_handler_enabled;\n"
+        "  }\n"
     )
     guarded = "#if V8_TRAP_HANDLER_SUPPORTED\n" + block + "#endif\n"
     replace_once(outside, block, guarded, guarded)
@@ -144,4 +144,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
